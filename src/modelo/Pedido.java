@@ -2,6 +2,7 @@ package modelo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pedido {
 	private int id;
@@ -96,8 +97,13 @@ public class Pedido {
 	}
 
 	public double valortotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		List<Produto> produtos = new ArrayList<>();
+		double sum = 0.0;
+		for (Produto p : produtos) {
+			sum = sum + p.getPreco();
+		}
+		return sum;
+		}
 	}
 
-}
+
