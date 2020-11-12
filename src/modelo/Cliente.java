@@ -38,5 +38,7 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
+	public Cliente cadastrarCliente(String telefone, String nome, String endereco) {
+		return new Cliente(telefone,nome,endereco);
+	}
 }
