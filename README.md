@@ -1,6 +1,12 @@
 # Projeto POO Delivery, faltam ( 20 ) dias !!
 
-<h2>Faltam ( 15 ) atividades !</h2>
+<h2>Faltam ( 18 ) atividades !</h2>
+
+- FAZER MODELO
+- FAZER REPOSITORIO
+- FAZER FACHADA COM OS METODOS ABAIXO:
+
+<hr>
 
 - cadastrar produtos        ----------  TODO
 - listar produtos         ----------  TODO
