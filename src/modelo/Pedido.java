@@ -69,11 +69,35 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
+	public void adicionar(Produto p) {
+		produtos.add(p);
+		// p.setPrateleira(this);
+	}
+
+	public void remover(Produto p) {
+		produtos.remove(p);
+		// p.setPrateleira(null);
+	}
+
+	public Produto localizarProduto(String nome) {
+		for (Produto p : produtos) {
+			if (p.getNome().equals(nome))
+				return p;
+		}
+		return null;
+	}
+	public int getTotalProdutos(){
+		return produtos.size();
+	}
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", datahora=" + datahora + ", valortotal=" + valortotal + ", entregador="
 				+ entregador + ", pago=" + pago + ", produtos=" + produtos + ", cliente=" + cliente + "]";
 	}
-	
-	
+
+	public double valortotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
