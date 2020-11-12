@@ -33,14 +33,13 @@ public class ClasseFachada {
 					aux.add(pe);
 				}
 			}
-		}
-		else {
+		} else {
 			return repositorio.getPedidos();
 		}
 		return null;
 	}
 
-	public static Produto cadastrarProduto( String nome, double preco) throws Exception {
+	public static Produto cadastrarProduto(String nome, double preco) throws Exception {
 		Produto p = repositorio.localizarProduto(nome);
 		int id = repositorio.getTotalProdutos() + 1;
 		if (p != null)
@@ -48,5 +47,14 @@ public class ClasseFachada {
 		p = new Produto(id, nome, preco);
 		repositorio.adicionar(p);
 		return p;
+	}
+
+	public static Cliente cadastrarCliente(String telefone, String nome, String endereco) throws Exception {
+		Cliente c = repositorio.localizarCliente(nome);
+		if (c != null)
+			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
+		c = new Cliente(telefone, nome, endereco);
+		repositorio.adicionar(c);
+		return c;
 	}
 }
