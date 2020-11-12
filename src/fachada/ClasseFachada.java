@@ -1,5 +1,7 @@
 package fachada;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import modelo.Cliente;
@@ -9,7 +11,7 @@ import repositorio.Repositorio;
 
 public class ClasseFachada {
 	public static Repositorio repositorio = new Repositorio();
-
+	public static SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy HH:mm:ss"); 
 	public static ArrayList<Produto> listarProdutos() {
 		return repositorio.getProdutos();
 	}
@@ -57,4 +59,11 @@ public class ClasseFachada {
 		repositorio.adicionar(c);
 		return c;
 	}
+	/*public static Pedido criarPedido(String telefone) {
+		Cliente c = repositorio.localizarCliente(telefone);
+		int id = repositorio.getTotalPedidos() + 1;
+		LocalDateTime agora = LocalDateTime.now();
+		Pedido p = new Pedido(id, sdf.format(agora), valortotal, entregador, pago, cliente)
+	}*/
+	
 }

@@ -14,6 +14,11 @@ public class PedidoExpress extends Pedido{
 	}
 	@Override
 	public double valortotal() {
-		return 0;
-	}
+		List<Produto> produtos = new ArrayList<>();
+		double sum = 0.0;
+		for (Produto p : produtos) {
+			sum = sum + p.getPreco();
+		}
+		return sum + taxaentrega;
+		}
 }
