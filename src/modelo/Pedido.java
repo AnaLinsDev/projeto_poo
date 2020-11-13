@@ -104,5 +104,11 @@ public class Pedido {
 		return "Pedido [id: " + id + ", cliente: " + cliente.getNome() + ", entregador: " + entregador + ", datahora: "
 				+ datahora + ", valortotal: " + valortotal + ", pago: " + pago + ", produtos: " + produtos + "]";
 	}
-	
+	public double valortotal() {
+        double total = 0.0;
+        for(Produto p : this.getProdutos()) {
+            total = total + p.getPreco();
+        }
+        return total;
+    }
 }

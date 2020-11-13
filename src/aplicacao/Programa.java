@@ -33,7 +33,7 @@ public class Programa {
 			// Adicionando produtos nos pedidos
 			
 			Fachada.adicionarProdutoPedido(1, 1);
-			/*
+			
 			Fachada.adicionarProdutoPedido(2, 2);
 			Fachada.adicionarProdutoPedido(3, 3);
 			Fachada.adicionarProdutoPedido(4, 4);
@@ -43,7 +43,7 @@ public class Programa {
 			Fachada.adicionarProdutoPedido(3, 3);
 			Fachada.adicionarProdutoPedido(4, 2);
 			Fachada.adicionarProdutoPedido(5, 1);
-			*/
+			
 			
 			// Pagando entregadores para pedido 1 e 2 + cancelando o 3
 
@@ -78,6 +78,8 @@ public class Programa {
 					texto +=  p + "\n"; 
 			
 			System.out.println(texto);
+			
+			System.out.println(Fachada.consultarProdutoTop());
 
 		}
 }
