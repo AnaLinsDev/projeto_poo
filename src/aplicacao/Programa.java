@@ -1,11 +1,9 @@
 package aplicacao;
 
-import java.util.ArrayList;
-
 import fachada.Fachada;
-import modelo.Produto;
 import modelo.Cliente;
 import modelo.Pedido;
+import modelo.Produto;
 
 public class Programa {
 		public static void main(String[] args) throws Exception {
