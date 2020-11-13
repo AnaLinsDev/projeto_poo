@@ -36,5 +36,13 @@ public class PedidoExpress extends Pedido {
 				+ ", datahora: " + getDatahora() + ", valortotal: " + getValortotal() + ", pago: " + isPago()
 				+ ", produtos: " + getProdutos() + ", taxaentrega: " + getTaxaEntrega() + "]";
 	}
-
+	@Override
+    public double valortotal() {
+        double total = 0.0;
+        for(Produto p : this.getProdutos()) {
+            total = total + p.getPreco();
+        }
+        total = total + this.taxaEntrega;
+        return total;
+    }
 }

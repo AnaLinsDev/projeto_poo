@@ -19,8 +19,8 @@ public class Programa {
 			Fachada.cadastrarProduto("CELULAR", 2500.0);
 			
 			Fachada.cadastrarCliente("982828282", "Ana Julia", "Brasil");
-			Fachada.cadastrarCliente("982845454", "Yohanna", "Jap„o");
-			Fachada.cadastrarCliente("982867762", "Amanda", "Canad·");
+			Fachada.cadastrarCliente("982845454", "Yohanna", "Jap√£o");
+			Fachada.cadastrarCliente("982867762", "Amanda", "Canad√°");
 			Fachada.cadastrarCliente("982989898", "Maria", "Noruega");
 			Fachada.cadastrarCliente("983434343", "Fatima", "Alemanha"); //express
 			
@@ -33,6 +33,7 @@ public class Programa {
 			// Adicionando produtos nos pedidos
 			
 			Fachada.adicionarProdutoPedido(1, 1);
+
 			Fachada.adicionarProdutoPedido(2, 2);
 			Fachada.adicionarProdutoPedido(3, 3);
 			Fachada.adicionarProdutoPedido(4, 4);
@@ -42,6 +43,7 @@ public class Programa {
 			Fachada.adicionarProdutoPedido(3, 3);
 			Fachada.adicionarProdutoPedido(4, 2);
 			Fachada.adicionarProdutoPedido(5, 1);
+
 			
 			// Pagando entregadores para pedido 1 e 2 + cancelando o 3
 
@@ -59,7 +61,7 @@ public class Programa {
 			// Listar Produtos
 			texto = "\nListagem de "+ Fachada.listarProdutos("").size() + " produtos:\n";
 			if (Fachada.listarProdutos("").isEmpty())
-				texto += "n„o tem produto cadastrado\n";
+				texto += "n√£o tem produto cadastrado\n";
 			else 	
 				for(Produto p: Fachada.listarProdutos("")) 
 					texto +=  p + "\n"; 
@@ -67,7 +69,7 @@ public class Programa {
 			// Listar Clientes
 			texto += "\nListagem "+ Fachada.listarClientes().size() +" de clientes: \n";
 			if (Fachada.listarClientes().isEmpty())
-				texto += "n„o tem cliente cadastrado\n";
+				texto += "n√£o tem cliente cadastrado\n";
 			else 	
 				for(Cliente c: Fachada.listarClientes()) 
 					texto +=  c + "\n"; 
@@ -75,12 +77,14 @@ public class Programa {
 			// Listar Pedidos
 			texto += "\nListagem "+ Fachada.listarPedidos().size() +" de pedidos: \n";
 			if (Fachada.listarPedidos().isEmpty())
-				texto += "n„o tem cliente cadastrado\n";
+				texto += "n√£o tem cliente cadastrado\n";
 			else 	
 				for(Pedido p: Fachada.listarPedidos()) 
 					texto +=  p + "\n"; 
 			
 			System.out.println(texto);
+			
+			System.out.println(Fachada.consultarProdutoTop());
 
 		}
 }
