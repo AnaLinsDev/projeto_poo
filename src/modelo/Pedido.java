@@ -98,6 +98,14 @@ public class Pedido {
 		this.getProdutos().remove(p);
 
 	}
+	
+	public double geraValortotal() {
+		double total = 0.0;
+		for(Produto p : this.getProdutos()) {
+			total = total + p.getPreco();
+		}
+		return total;
+	}
 
 	@Override
 	public String toString() {
