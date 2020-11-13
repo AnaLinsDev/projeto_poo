@@ -38,7 +38,17 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public Cliente cadastrarCliente(String telefone, String nome, String endereco) {
-		return new Cliente(telefone,nome,endereco);
+
+	public ArrayList<Pedido> getPedidos() {
+		return pedidos;
 	}
+
+	public void setPedidos(ArrayList<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	@Override
+	public String toString() {
+		return "Cliente [telefone: " + telefone + ", nome: " + nome + ", endereço: " + endereco +"]";
+	}
+
 }

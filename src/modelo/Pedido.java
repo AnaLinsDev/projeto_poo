@@ -20,6 +20,7 @@ public class Pedido {
 		this.entregador = entregador;
 		this.pago = pago;
 		this.cliente = cliente;
+		this.setProdutos(produtos);
 	}
 
 	public int getId() {
@@ -70,30 +71,36 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public void adicionar(Produto p) {
-		produtos.add(p);
-		// p.setPrateleira(this);
+	public ArrayList<Produto> getProduto() {
+		return getProdutos();
 	}
 
-	public void remover(Produto p) {
-		produtos.remove(p);
-		// p.setPrateleira(null);
+	public void setProduto(ArrayList<Produto> produtos) {
+		this.setProdutos(produtos);
 	}
 
-	public Produto localizarProduto(String nome) {
-		for (Produto p : produtos) {
-			if (p.getNome().equals(nome))
-				return p;
-		}
-		return null;
+	public void addProduto(Produto p) {
+		this.getProduto().add(p);
+
 	}
-	public int getTotalProdutos(){
-		return produtos.size();
+
+	public void remProduto(Produto p) {
+		this.getProduto().remove(p);
+
 	}
+
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", datahora=" + datahora + ", valortotal=" + valortotal + ", entregador="
-				+ entregador + ", pago=" + pago + ", produtos=" + produtos + ", cliente=" + cliente + "]";
+		return "Pedido [id: " + id + ", cliente: " + cliente.getNome() + ", entregador: " + entregador + ", datahora: "
+				+ datahora + ", valortotal: " + valortotal + ", pago: " + pago + ", produtos: " + getProdutos() + "]";
+	}
+
+	public ArrayList<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(ArrayList<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	public double valortotal() {
@@ -103,7 +110,5 @@ public class Pedido {
 			sum = sum + p.getPreco();
 		}
 		return sum;
-		}
 	}
-
-
+}
