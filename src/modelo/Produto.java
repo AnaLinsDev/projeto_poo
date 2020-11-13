@@ -7,7 +7,7 @@ public class Produto {
 	private String nome;
 	private double preco;
 	private ArrayList<Pedido> pedidos;
-
+	
 	public Produto(int id, String nome, double preco) {
 		super();
 		this.id = id;
@@ -38,9 +38,9 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", pedidos=" + pedidos + "]";
+		return "Produto [id: " + id + ", nome: " + nome + ", preco: " + preco + ", pedidos: " + pedidos + "]";
 	}
 }
