@@ -2,7 +2,6 @@ package modelo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Pedido {
 	private int id;
@@ -13,14 +12,16 @@ public class Pedido {
 	private ArrayList<Produto> produtos;
 	private Cliente cliente;
 
-	public Pedido(int id, LocalDateTime datahora, double valortotal, String entregador, boolean pago, Cliente cliente) {
+	public Pedido(int id, LocalDateTime datahora, double valortotal, String entregador, boolean pago, Cliente cliente,
+			ArrayList<Produto> produtos) {
 		this.id = id;
 		this.datahora = datahora;
 		this.valortotal = valortotal;
 		this.entregador = entregador;
 		this.pago = pago;
 		this.cliente = cliente;
-		this.setProdutos(produtos);
+		this.produtos = produtos;
+
 	}
 
 	public int getId() {
@@ -55,6 +56,23 @@ public class Pedido {
 		this.entregador = entregador;
 	}
 
+	public ArrayList<Produto> getProdutos() {
+		return this.produtos;
+	}
+
+	public Produto getProdutoById(int idproduto) {
+		for (Produto p : this.produtos) {
+			if (p.getId() == idproduto) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+	public void setProdutos(ArrayList<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 	public boolean isPago() {
 		return pago;
 	}
@@ -71,44 +89,20 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public ArrayList<Produto> getProduto() {
-		return getProdutos();
-	}
-
-	public void setProduto(ArrayList<Produto> produtos) {
-		this.setProdutos(produtos);
-	}
-
-	public void addProduto(Produto p) {
-		this.getProduto().add(p);
+	public void addProduto(Produto pr) {
+		this.produtos.add(pr);
 
 	}
 
 	public void remProduto(Produto p) {
-		this.getProduto().remove(p);
+		this.getProdutos().remove(p);
 
 	}
 
 	@Override
 	public String toString() {
 		return "Pedido [id: " + id + ", cliente: " + cliente.getNome() + ", entregador: " + entregador + ", datahora: "
-				+ datahora + ", valortotal: " + valortotal + ", pago: " + pago + ", produtos: " + getProdutos() + "]";
+				+ datahora + ", valortotal: " + valortotal + ", pago: " + pago + ", produtos: " + produtos + "]";
 	}
-
-	public ArrayList<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(ArrayList<Produto> produtos) {
-		this.produtos = produtos;
-	}
-
-	public double valortotal() {
-		List<Produto> produtos = new ArrayList<>();
-		double sum = 0.0;
-		for (Produto p : produtos) {
-			sum = sum + p.getPreco();
-		}
-		return sum;
-	}
+	
 }

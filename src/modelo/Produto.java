@@ -8,13 +8,31 @@ public class Produto {
 	private double preco;
 	private ArrayList<Pedido> pedidos;
 	
-	public Produto(int id, String nome, double preco) {
+	public Produto(int id, String nome, double preco, ArrayList<Pedido> pedidos) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
+		this.pedidos = pedidos;
 	}
 
+	public ArrayList<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(ArrayList<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	
+	public void addPedido(Pedido pe ) {
+		this.pedidos.add(pe);
+
+	}
+	public void remPedido(Pedido p ) {
+		this.getPedidos().remove(p);
+
+	}
+	
 	public int getId() {
 		return id;
 	}
