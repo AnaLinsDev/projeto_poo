@@ -1,6 +1,5 @@
 package fachada;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -36,19 +35,19 @@ public class Fachada {
 	}
 
 	public static Produto cadastrarProduto(String nome, double preco) throws Exception {
+		idproduto++;
 		Produto p = repositorio.localizarProduto(nome);
-		idproduto = repositorio.getTotalProdutos() + 1;
 		if (p != null)
-			throw new Exception("cadastrar produto - produto ja cadastrado:" + nome);
+			throw new Exception("cadastrar produto - produto ja cadastrado:");
 		p = new Produto(idproduto, nome, preco);
 		repositorio.adicionar(p);
 		return p;
 	}
 
 	public static Cliente cadastrarCliente(String telefone, String nome, String endereco) throws Exception {
-		Cliente c = repositorio.localizarCliente(nome);
+		Cliente c = repositorio.localizarCliente(telefone);
 		if (c != null)
-			throw new Exception("cadastrar cliente - cliente ja cadastrado:" + nome);
+			throw new Exception("cadastrar cliente - cliente ja cadastrado:");
 		c = new Cliente(telefone, nome, endereco);
 		repositorio.adicionar(c);
 		return c;
@@ -56,9 +55,9 @@ public class Fachada {
 
 	public static Pedido criarPedido(String telefone) {
 		idpedido++;
+		LocalDateTime agora = LocalDateTime.now();
 		Cliente c = repositorio.localizarCliente(telefone);
 		Pedido pedido;
-		LocalDateTime agora = LocalDateTime.now();
 		if (c != null) {
 			pedido = new Pedido(idpedido, agora, 0, null, false, c);
 			repositorio.adicionar(pedido);
@@ -70,15 +69,9 @@ public class Fachada {
 	public static Pedido criarPedido(String telefone, double taxaentrega) {
 		idpedido++;
 		LocalDateTime agora = LocalDateTime.now();
-		Cliente cli = null;
+		Cliente c = repositorio.localizarCliente(telefone);
 		Pedido pedido;
-		for (Cliente c : repositorio.getClientes()) {
-			if (c.getTelefone() == telefone) {
-				cli = c;
-			}
-		}
-		if (cli != null) {
-			Cliente c = repositorio.localizarCliente(telefone);
+		if (c != null) {
 			pedido = new PedidoExpress(idpedido, agora, 0, null, false, c, taxaentrega);
 			repositorio.adicionar(pedido);
 			return pedido;

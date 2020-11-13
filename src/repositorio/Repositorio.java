@@ -65,9 +65,9 @@ public class Repositorio {
 		return clientes;
 	}
 
-	public Cliente localizarCliente(String nome) {
+	public Cliente localizarCliente(String telefone) {
 		for (Cliente c : clientes) {
-			if (c.getNome().equals(nome))
+			if (c.getTelefone().equals(telefone))
 				return c;
 		}
 		return null;
