@@ -1,9 +1,12 @@
+  
 package aplicacao;
 
+import java.util.ArrayList;
+
 import fachada.Fachada;
+import modelo.Produto;
 import modelo.Cliente;
 import modelo.Pedido;
-import modelo.Produto;
 
 public class Programa {
 		public static void main(String[] args) throws Exception {
@@ -26,6 +29,21 @@ public class Programa {
 			Fachada.criarPedido("982867762");
 			Fachada.criarPedido("982989898");
 			Fachada.criarPedido("983434343", 10);
+			
+			// Adicionando produtos nos pedidos
+			
+			Fachada.adicionarProdutoPedido(1, 1);
+			/*
+			Fachada.adicionarProdutoPedido(2, 2);
+			Fachada.adicionarProdutoPedido(3, 3);
+			Fachada.adicionarProdutoPedido(4, 4);
+			Fachada.adicionarProdutoPedido(5, 5);
+			Fachada.adicionarProdutoPedido(1, 5);
+			Fachada.adicionarProdutoPedido(2, 4);
+			Fachada.adicionarProdutoPedido(3, 3);
+			Fachada.adicionarProdutoPedido(4, 2);
+			Fachada.adicionarProdutoPedido(5, 1);
+			*/
 			
 			// Pagando entregadores para pedido 1 e 2 + cancelando o 3
 
