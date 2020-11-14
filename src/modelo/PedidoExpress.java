@@ -19,6 +19,16 @@ public class PedidoExpress extends Pedido {
 	public void setTaxaEntrega(double taxaentrega) {
 		this.taxaEntrega = taxaentrega;
 	}
+	
+	@Override
+	public double geraValortotal() {
+		double total = 0.0;
+		for(Produto p : this.getProdutos()) {
+			total = total + p.getPreco();
+		}
+		total = total + this.taxaEntrega;
+		return total;
+	}
 
 	@Override
 	public String toString() {
