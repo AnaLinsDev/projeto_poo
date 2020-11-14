@@ -3,6 +3,9 @@ package fachada;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import modelo.Cliente;
 import modelo.Pedido;
@@ -167,15 +170,17 @@ public class Fachada {
 				contagem.put(p, contagem.get(p) + 1);
 			}
 		}
-
-		for (Produto p : contagem.keySet()) {
-			String key = p.toString();
-			int value = Integer.parseInt(contagem.get(p).toString());
-			if (value >= 2) {
-				res.add(p);
-			}
-
+		Map<Produto, Integer> sortedNewMap = contagem.entrySet().stream().sorted((e1,e2)->
+        Integer.compare(e2.getValue(), e1.getValue()))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                (e1, e2) -> e1, LinkedHashMap::new));
+		sortedNewMap.forEach((key,val)->{
+		    System.out.println(key+ " = "+ val.toString());
+		});
+		for (Produto p : sortedNewMap.keySet()) {
+			res.add(p);
 		}
+
 		return res;
 
 	}
