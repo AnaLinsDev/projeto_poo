@@ -170,12 +170,11 @@ public class Fachada {
 				contagem.put(p, contagem.get(p) + 1);
 			}
 		}
-		Map<Produto, Integer> sortedNewMap = contagem.entrySet().stream().sorted((e1,e2)->
-        Integer.compare(e2.getValue(), e1.getValue()))
-        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                (e1, e2) -> e1, LinkedHashMap::new));
-		sortedNewMap.forEach((key,val)->{
-		    System.out.println(key+ " = "+ val.toString());
+		Map<Produto, Integer> sortedNewMap = contagem.entrySet().stream()
+				.sorted((e1, e2) -> Integer.compare(e2.getValue(), e1.getValue()))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		sortedNewMap.forEach((key, val) -> {
+			System.out.println(key + " = " + val.toString());
 		});
 		for (Produto p : sortedNewMap.keySet()) {
 			res.add(p);
