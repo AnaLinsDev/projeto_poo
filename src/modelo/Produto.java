@@ -23,9 +23,19 @@ public class Produto {
 	public void setPedidos(ArrayList<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	public ArrayList<Integer> getPedidosIds() {
+		ArrayList<Integer> res = new ArrayList<>();
+		for (Pedido p : getPedidos()) {
+			res.add(p.getId());
+		}
+		return res;
+	}
+
 	
-	public void addPedido(Pedido pe ) {
-		this.pedidos.add(pe);
+	public void addPedido(Pedido p ) {
+		if (!this.pedidos.contains(p)) {
+			this.pedidos.add(p);
+		}
 
 	}
 	public void remPedido(Pedido p ) {
@@ -59,6 +69,6 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [id: " + id + ", nome: " + nome + ", preco: " + preco + "]";
+		return "Produto [id: " + id + ", nome: " + nome + ", preco: " + preco + " idPedidos: "+ getPedidosIds()+ "]";
 	}
 }

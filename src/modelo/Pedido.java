@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Pedido {
@@ -11,6 +12,8 @@ public class Pedido {
 	private boolean pago;
 	private ArrayList<Produto> produtos;
 	private Cliente cliente;
+	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
 
 	public Pedido(int id, LocalDateTime datahora, double valortotal, String entregador, boolean pago, Cliente cliente,
 			ArrayList<Produto> produtos) {
@@ -60,14 +63,6 @@ public class Pedido {
 		return this.produtos;
 	}
 
-	public Produto getProdutoById(int idproduto) {
-		for (Produto p : this.produtos) {
-			if (p.getId() == idproduto) {
-				return p;
-			}
-		}
-		return null;
-	}
 
 	public void setProdutos(ArrayList<Produto> produtos) {
 		this.produtos = produtos;
@@ -107,16 +102,18 @@ public class Pedido {
 		return total;
 	}
 
+	public ArrayList<Integer> getProdutosIds() {
+		ArrayList<Integer> res = new ArrayList<>();
+		for (Produto p : getProdutos()) {
+			res.add(p.getId());
+		}
+		return res;
+	}
+
 	@Override
 	public String toString() {
+		String formatada = datahora.format(formatter);
 		return "Pedido [id: " + id + ", cliente: " + cliente.getNome() + ", entregador: " + entregador + ", datahora: "
-				+ datahora + ", valortotal: " + valortotal + ", pago: " + pago + ", produtos: " + produtos + "]";
+				+ formatada + ", valortotal: " + geraValortotal() + ", pago: " + pago + ", idProdutos: " +  getProdutosIds() + "]";
 	}
-	public double valortotal() {
-        double total = 0.0;
-        for(Produto p : this.getProdutos()) {
-            total = total + p.getPreco();
-        }
-        return total;
-    }
 }

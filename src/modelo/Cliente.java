@@ -8,10 +8,11 @@ public class Cliente {
 	private String endereco;
 	private ArrayList<Pedido> pedidos;
 
-	public Cliente(String telefone, String nome, String endereco) {
+	public Cliente(String telefone, String nome, String endereco, ArrayList<Pedido> pedidos) {
 		this.telefone = telefone;
 		this.nome = nome;
 		this.endereco = endereco;
+		this.pedidos = pedidos;
 
 	}
 
@@ -40,15 +41,31 @@ public class Cliente {
 	}
 
 	public ArrayList<Pedido> getPedidos() {
-		return pedidos;
+		return this.pedidos;
 	}
 
 	public void setPedidos(ArrayList<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	public void addPedido(Pedido p) {
+		if (!this.pedidos.contains(p)) {
+			this.pedidos.add(p);
+		}
+	}
+
+	public void remPedido(Pedido p) {
+		this.pedidos.remove(p);
+	}
+	public ArrayList<Integer> getPedidosIds() {
+		ArrayList<Integer> res = new ArrayList<>();
+		for (Pedido p : getPedidos()) {
+			res.add(p.getId());
+		}
+		return res;
+	}
 	@Override
 	public String toString() {
-		return "Cliente [telefone: " + telefone + ", nome: " + nome + ", endereço: " + endereco +"]";
+		return "Cliente [telefone: " + telefone + ", nome: " + nome + ", endereço: " + endereco +" idPedidos: "+ getPedidosIds() +"]";
 	}
 
 }
