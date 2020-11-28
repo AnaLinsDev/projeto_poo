@@ -44,6 +44,7 @@ public class NovaJanelaPedido extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaCriar innerFrame = new JanelaCriar();
+				innerFrame.setBounds(100, 100, 450, 300);
 		        innerFrame.setVisible(true);
 			}
 		});
@@ -54,6 +55,7 @@ public class NovaJanelaPedido extends JFrame{
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaAlterar innerFrame = new JanelaAlterar();
+				innerFrame.setBounds(100, 100, 450, 300);
 		        innerFrame.setVisible(true);
 			}
 		});
@@ -65,6 +67,7 @@ public class NovaJanelaPedido extends JFrame{
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaPagar innerFrame = new JanelaPagar();
+				innerFrame.setBounds(100, 100, 450, 300);
 		        innerFrame.setVisible(true);
 			}
 		});
@@ -81,6 +84,7 @@ public class NovaJanelaPedido extends JFrame{
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaCancelamento innerFrame = new JanelaCancelamento();
+				innerFrame.setBounds(100, 100, 450, 300);
 		        innerFrame.setVisible(true);
 			}
 		});

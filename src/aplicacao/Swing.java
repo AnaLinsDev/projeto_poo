@@ -55,6 +55,7 @@ public class Swing extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NovaJanelaPedido innerFrame = new NovaJanelaPedido();
+				innerFrame.setBounds(100, 100, 450, 300);
 		        innerFrame.setVisible(true);
 			}
 
@@ -65,6 +66,7 @@ public class Swing extends JFrame {
 		btnListagem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NovaJanelaListagem innerFrame = new NovaJanelaListagem();
+				innerFrame.setBounds(100, 100, 450, 700);
 		        innerFrame.setVisible(true);
 			}
 		});
