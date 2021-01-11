@@ -1,4 +1,4 @@
-# Projeto POO Delivery, faltam ( 20 ) dias !!
+# Projeto POO Delivery
 
 
 
