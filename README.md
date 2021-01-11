@@ -1,32 +1,28 @@
 # Projeto POO Delivery, faltam ( 20 ) dias !!
 
-<h2>Faltam ( 18 ) atividades !</h2>
 
-- FAZER MODELO
-- FAZER REPOSITORIO
-- FAZER FACHADA COM OS METODOS ABAIXO:
 
 <hr>
 
-- cadastrar produtos        ----------  TODO
-- listar produtos         ----------  TODO
+- cadastrar produtos       
+- listar produtos         
 
-- cadastrar clientes        ----------  TODO
-- listar clientes         ----------  TODO
+- cadastrar clientes        
+- listar clientes        
 
-- criar pedidos        ----------  TODO
-- listar pedidos        ----------  TODO
+- criar pedidos        
+- listar pedidos        
 
-- inserir produtos no pedidos        ----------  TODO        
-- remover produtos no pedidos        ----------  TODO
+- inserir produtos no pedidos           
+- remover produtos no pedidos       
 
-- consultar o pedido        ----------  TODO
-- pagar pedido        ----------  TODO
-- cancelar pedido        ----------  TODO
-- consultar arrecadação        ----------  TODO
-- consultar os top produtos        ----------  TODO
+- consultar o pedido       
+- pagar pedido        
+- cancelar pedido        
+- consultar arrecadação       
+- consultar os top produtos      
 
-- Aplicacao Console        ----------  TODO
-- Aplicacao Swing        ----------  TODO
+- Aplicacao Console       
+- Aplicacao Swing       
 
 <h2> OBS: Sempre verificando se o programa está atentendo as regras de negocio !! </h2>
